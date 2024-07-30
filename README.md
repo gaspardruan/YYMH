@@ -11,7 +11,7 @@ https://yymh.app/home/book/index/id/361
 ```
 Then, simply run the script:
 ```
-python downloader.py [id] [name]
+python yymh.py [id] [name]
 ```
 [id] is what you've got above. [name] is decided on you.
 
