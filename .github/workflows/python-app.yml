@@ -1,4 +1,4 @@
-name: YYMH Downloader
+name: Test
 
 on:
   push:
