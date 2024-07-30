@@ -11,24 +11,29 @@ HEADERS = {
 }
 
 
-def download_all(url, name):
+def get_url_list(url):
     response = requests.get(url)
     if response.status_code == 200:
-        folder_path = './' + name
-        if os.path.isdir(folder_path):
-            shutil.rmtree(folder_path)
-        os.makedirs(folder_path)
-
         data = response.json()
         chapters = data['result']['list']
+        return chapters
+    return []
 
-        with ThreadPoolExecutor(max_workers=16) as pool:
-            for chapter_num, chapter in enumerate(chapters, 1):
-                image_list = chapter['imagelist'].split(',')
-                for image_num, image in enumerate(image_list, 1):
-                    image_url = BASE_SRC + image
-                    pool.submit(download_image, image_url,
-                                chapter_num, image_num, folder_path)
+
+def download_all(url, name):
+    chapters = get_url_list(url)
+    folder_path = './' + name
+    if os.path.isdir(folder_path):
+        shutil.rmtree(folder_path)
+    os.makedirs(folder_path)
+
+    with ThreadPoolExecutor(max_workers=16) as pool:
+        for chapter_num, chapter in enumerate(chapters, 1):
+            image_list = chapter['imagelist'].split(',')
+            for image_num, image in enumerate(image_list, 1):
+                image_url = BASE_SRC + image
+                pool.submit(download_image, image_url,
+                            chapter_num, image_num, folder_path)
 
 
 def download_image(image_url, chapter_num, image_num, folder_path):
@@ -72,6 +77,3 @@ def main():
     print("Start Deleting")
     delete_folder('./' + name)
     print("Deleting Done")
-
-
-main()
