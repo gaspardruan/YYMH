@@ -5,6 +5,8 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 
 URL = "https://yymh.app/home/api/chapter_list/tp/{}-1-1-1000"
+# If download failed, try to change the BASE_SRC to another one
+# BASE_SRC = "https://ii.juhiepay.com/public"
 BASE_SRC = "https://yyxx.xiumm.top/public"
 HEADERS = {
     'Referer': 'https://yymh.app/'
