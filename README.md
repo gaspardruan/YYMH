@@ -19,5 +19,7 @@ python yymh.py [id] [name]
 
 # Others
 
-`.cbz` format is actually same as `.zip`, which means you can change the suffix to `.zip` and double click to get
+- `.cbz` format is actually same as `.zip`, which means you can change the suffix to `.zip` and double click to get
 the image list. Then, you can deal with it as you want.
+
+- If the script is not working, issue is welcomed.
