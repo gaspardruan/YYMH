@@ -1,9 +1,7 @@
 ![Testing Status](https://github.com/gaspardruan/YYMH/actions/workflows/python-app.yml/badge.svg)
 
 This is a python script to download YYMH comic books. The available links are as followed:
-- [manhuadizhi.com](https://manhuadizhi.com)
 - [yymh.app](https://yymh.app)
-- [yymh.cn](https://yymh.cn)
 
 # Usage
 
